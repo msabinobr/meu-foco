@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FocusFlow: Your ADHD Companion App
 
-## Getting Started
+## Overview
 
-First, run the development server:
+FocusFlow is a React-based application designed to assist individuals, particularly those with ADHD, in managing organization, focus, and well-being. It integrates an AI personal assistant to provide comprehensive support.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+FocusFlow offers a comprehensive suite of tools to aid in daily life:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*   **Dashboard:** Your central hub for a quick overview of tasks, stats, and motivational messages.
+*   **Breathing Game:** Guided breathing exercises with animations, sounds, and progress tracking to help you recenter and relax.
+*   **Magic Pomodoro:** A customizable Pomodoro timer to enhance focus, with task association and session statistics.
+*   **Mission Board (Tasks):** A robust task management system allowing you to add, edit, filter, and track your to-dos.
+*   **How I Am (Well-being Tracker):** A simple interface to log and monitor your daily mood and well-being.
+*   **Magic Diary:** A private space for journaling, with potential for tagging and categorization.
+*   **AI Assistant:** An interactive chat interface with a virtual assistant providing suggestions, answering questions, and helping with organization.
+*   **Enchanted Journey (Progress Tracker):** Visualize your overall progress within the app as an engaging "journey," possibly with achievements and levels.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Components & Code Structure
 
-## Learn More
+The application is built with React and organized into several key components:
 
-To learn more about Next.js, take a look at the following resources:
+*   **`Layout.js`:** This is the main layout component, responsible for the overall page structure, including the navigation sidebar, header, and footer. It also manages user state, data loading, and sidebar interactions (expanded/collapsed).
+*   **`BreathingGamePage.js`:** Implements the interactive breathing game. This component handles the timer, animations, binaural sounds, selection of breathing techniques, session statistics, and history.
+*   **`InteractiveAgent.js`:** Powers the AI assistant. It includes the chat interface, smart suggestions, text/voice input capabilities, and message history.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application leverages a modern web development stack:
 
-## Deploy on Vercel
+*   **React:** The core library for building the user interface.
+*   **react-router-dom:** For handling navigation and routing between different pages/sections.
+*   **lucide-react:** Used for incorporating a library of vector icons.
+*   **Custom UI Components:** Likely from the application's own library or a framework like Tailwind UI, including:
+    *   `Card`, `CardContent`, `CardHeader`, `CardTitle`
+    *   `Button`, `Badge`, `Select`, `Tabs`, `Input`, `Progress`
+    *   `Sidebar`, `SidebarContent`, `SidebarGroup`
+*   **recharts:** A library for creating charts and data visualizations (e.g., for breathing game progress).
+*   **date-fns:** A utility library for manipulating and formatting dates.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## General Flow and Main Functionalities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application is designed for intuitive interaction:
+
+*   **Main Layout & Navigation:** The `Layout.js` component provides a consistent structure with a sidebar for easy navigation between the app's different sections using `react-router-dom`. User-specific information like avatar, level, and points is also displayed within this layout.
+*   **Breathing Game:** Users can access the `BreathingGamePage` to select various breathing techniques, start timed sessions, follow visual animations, and listen to binaural sounds. Session statistics are recorded for progress tracking.
+*   **AI Assistant:** The `InteractiveAgent` component offers a chat interface for users to communicate with the AI assistant via text or voice. The assistant provides suggestions and responses to help with organization and other tasks.
+*   **User Data Management:** The application handles user-specific data, including profile information, progress in activities, various statistics, and achievements, managed via a `User` entity.
+*   **UI Components:** A rich set of custom and library-based UI components are used throughout the application to create a visually appealing and interactive experience.
