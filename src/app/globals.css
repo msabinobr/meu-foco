@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
+/* As diretivas @theme inline podem ser específicas do Tailwind v4 e Geist.
+   Vamos mantê-las por enquanto, a menos que causem problemas. */
+@theme inline {
+  /* --color-background: var(--background); -- Removido pois definiremos diretamente no body */
+  /* --color-foreground: var(--foreground); -- Removido pois definiremos diretamente no body */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: theme('colors.brand-dark-bg'); /* Usando a cor do tailwind.config.ts */
+  color: #EDEDED; /* Uma cor de texto clara padrão */
+  /* A font-family será aplicada automaticamente pelo Tailwind através da classe base ou configuração no tailwind.config.ts */
+}
+
+/* Removendo as definições de :root e @media (prefers-color-scheme: dark)
+   pois estamos definindo um tema escuro fixo por enquanto.
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,9 +29,4 @@
     --foreground: #ededed;
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+*/
